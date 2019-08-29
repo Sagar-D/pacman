@@ -2,7 +2,7 @@ class pacman {
 
     constructor(cxt,x,y,radius,speed){
 
-        this.this.cxt = cxt;
+        this.cxt = cxt;
         this.x = x;
         this.y = y;
         this.speed = speed;
@@ -10,7 +10,7 @@ class pacman {
 
         this.currentDirection = 'right';
         this.faceAngles = {
-            'up' : {
+            up : {
                 startAngle : 1.65 * Math.PI,
                 endAngle : 1.35 * Math.PI
             },
@@ -18,7 +18,7 @@ class pacman {
                 startAngle : 0.65 * Math.PI,
                 endAngle : 0.35 * Math.PI
             },
-            'right' : {
+            right : {
                 startAngle : 0.15 * Math.PI,
                 endAngle : 1.85 * Math.PI
             },
@@ -32,7 +32,7 @@ class pacman {
     createPacman(direction,cordinate_x,cordinate_y){
 
         this.currentDirection = direction;
-
+        console.log('hahahaah',direction,this.faceAngles[direction])
         let startAngle=this.faceAngles[direction].startAngle;
         let endAngle=this.faceAngles[direction].endAngle;
 

@@ -80,9 +80,7 @@ class playArea {
 
         let coordinate_x = (this.pacman.x * this.unitLength) + this.unitLength/2;
         let coordinate_y = (this.pacman.y * this.unitLength) + this.unitLength/2;
-console.log(this.pacman)
-        console.log(pacman_x,pacman_y,this.pacman.x,this.pacman.y,coordinate_x,coordinate_y)
-        this.pacman.createPacman(this.cxt, 'right', coordinate_x, coordinate_y)
+        this.pacman.createPacman('right', coordinate_x, coordinate_y)
 
         return this;
     }
