@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PACMAN</title>
+
+  <script type="text/javascript" src="pacman.js"></script>
+  <script type="text/javascript" src="playArea.js"></script>
+
+  <script type="text/javascript">
+
+    function initiatePacman(){
+      var canvas = document.getElementById('playground');
+      canvas.width = window.screen.availHeight < window.screen.availWidth ? window.screen.availHeight :window.screen.availWidth;
+      canvas.width = (canvas.width/3)*2;
+      canvas.height = canvas.width;
+      canvas.style.margin = '0 auto';
+
+      let map = new playArea('playground');
+      map.buildLayout().initialisePacman();
+
+    }
+
+  </script>
+
+  <style type="text/css">
+
+    .container {
+      display: flex;
+      align-content: center;
+    }
+
+  </style>
+
+</head>
+<body onload="initiatePacman()">
+<h1 align="center">T</h1>
+
+<div class="container">
+<canvas align="center" id="playground" width="1200" height="1000" style="border-style: solid; border-color: #000000;" >Why don't u plan to die</canvas>
+</div>
+</body>
+</html>
