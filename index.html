@@ -8,6 +8,8 @@
 
   <script type="text/javascript">
 
+    let map;
+
     function initiatePacman(){
       var canvas = document.getElementById('playground');
       canvas.width = window.screen.availHeight < window.screen.availWidth ? window.screen.availHeight :window.screen.availWidth;
@@ -15,10 +17,25 @@
       canvas.height = canvas.width;
       canvas.style.margin = '0 auto';
 
-      let map = new playArea('playground');
+      map = new playArea('playground');
       map.buildLayout().initialisePacman();
 
     }
+
+    document.addEventListener('keydown',function(event){
+
+
+      if(event.code=='ArrowUp'){
+        map.navigate('up');
+      }else if (event.code=='ArrowDown') {
+        map.navigate('down');
+      }else if (event.code=='ArrowRight') {
+        map.navigate('right');
+      }else if (event.code=='ArrowLeft') {
+        map.navigate('left');
+      }
+
+    })
 
   </script>
 

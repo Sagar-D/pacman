@@ -29,16 +29,17 @@ class pacman {
         }
     }
 
-    createPacman(direction,cordinate_x,cordinate_y){
+    createPacman(direction,scale){
 
         this.currentDirection = direction;
-        console.log('hahahaah',direction,this.faceAngles[direction])
         let startAngle=this.faceAngles[direction].startAngle;
         let endAngle=this.faceAngles[direction].endAngle;
-
-        console.log(startAngle,endAngle, cordinate_x, cordinate_y)
+        let cordinate_x = (this.x * scale) + scale/2;
+        let cordinate_y = (this.y * scale) + scale/2;
 
         this.cxt.fillStyle = '#00ff6a';
+        this.cxt.strokeStyle = '#00ff6a';
+
         this.cxt.beginPath();
         this.cxt.arc(cordinate_x,cordinate_y,this.radius,startAngle,endAngle)
         this.cxt.lineTo(cordinate_x,cordinate_y);
@@ -50,13 +51,16 @@ class pacman {
 
     }
 
-    deletePacman(cxt,cordinate_x,cordinate_y){
+    deletePacman(scale){
+
+        let cordinate_x = (this.x * scale) + scale/2;
+        let cordinate_y = (this.y * scale) + scale/2;
 
         this.cxt.fillStyle = '#ffffff';
         this.cxt.strokeStyle = '#ffffff';
 
         this.cxt.beginPath();
-        this.cxt.arc(cordinate_x,cordinate_y,this.radius,0,2 * Math.PI)
+        this.cxt.arc(cordinate_x,cordinate_y,this.radius + 1,0,2 * Math.PI)
         this.cxt.stroke();
         this.cxt.closePath();
         this.cxt.fill();
