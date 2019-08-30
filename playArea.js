@@ -97,10 +97,16 @@ class playArea {
             this.pacman.y += this.pacman.speed;
         }
         if(direction.toLowerCase()=='right'){
-            this.pacman.x += this.pacman.speed;
+            if (this.pacman.x == this.col_count-1)
+                this.pacman.x = 0;
+            else
+                this.pacman.x += this.pacman.speed;
         }
         if(direction.toLowerCase()=='left'){
-            this.pacman.x -= this.pacman.speed;
+            if (this.pacman.x == 0)
+                this.pacman.x = this.col_count-1;
+            else
+                this.pacman.x -= this.pacman.speed;
         }
 
         this.pacman.createPacman(direction,this.unitLength);
@@ -125,12 +131,18 @@ class playArea {
         else if(direction.toLowerCase()=='right'){
             if (!Number.isInteger(new_y))
                 return false
-            new_x = Math.floor(new_x+1);
+            if (new_x == this.col_count-1)
+                new_x = 0;
+            else
+                new_x = Math.floor(new_x+1);
         }
         else if(direction.toLowerCase()=='left'){
             if (!Number.isInteger(new_y))
                 return false
-            new_x = Math.ceil(new_x-1);
+            if (new_x == 0)
+                new_x = this.col_count-1;
+            else
+                new_x = Math.ceil(new_x-1);
         }
 
         return this.layout[new_y][new_x]>=0
